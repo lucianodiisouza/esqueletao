@@ -19,6 +19,15 @@ npm install esqueletao
 yarn add esqueletao
 ```
 
+### New Architecture Support
+
+This library is fully compatible with React Native's new architecture (Fabric + TurboModules):
+
+- **React Native 0.73+**: Built with new architecture support
+- **Reanimated 4**: Uses JSI for optimal performance with latest features
+- **Expo 50+**: Full compatibility with managed workflow
+- **No native code**: Pure JavaScript/TypeScript implementation
+
 ### Expo
 
 The library is fully compatible with Expo and requires no additional setup for the managed workflow. Just install and use!
