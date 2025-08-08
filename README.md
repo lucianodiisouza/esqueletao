@@ -49,9 +49,9 @@ npm run example
 ## Quick Start
 
 ```tsx
-import React from 'react';
-import { View } from 'react-native';
-import { SkeletonProvider, Skeleton } from 'esqueletao';
+import React from "react";
+import { View } from "react-native";
+import { SkeletonProvider, Skeleton } from "esqueletao";
 
 const App = () => {
   return (
@@ -73,18 +73,18 @@ const App = () => {
 The context provider that manages global theme settings.
 
 ```tsx
-import { SkeletonProvider } from 'esqueletao';
+import { SkeletonProvider } from "esqueletao";
 
 <SkeletonProvider
   theme={{
-    baseColor: '#E1E9EE',
-    highlightColor: '#F2F8FC',
-    animation: 'shimmer',
+    baseColor: "#E1E9EE",
+    highlightColor: "#F2F8FC",
+    animation: "shimmer",
     duration: 1500,
   }}
 >
   {/* Your skeleton components */}
-</SkeletonProvider>
+</SkeletonProvider>;
 ```
 
 ### Skeleton
@@ -92,7 +92,7 @@ import { SkeletonProvider } from 'esqueletao';
 The core skeleton placeholder component with full customization options.
 
 ```tsx
-import { Skeleton } from 'esqueletao';
+import { Skeleton } from "esqueletao";
 
 <Skeleton
   width={100}
@@ -104,7 +104,7 @@ import { Skeleton } from 'esqueletao';
   duration={1000}
   margin={8}
   padding={4}
-/>
+/>;
 ```
 
 ### List Integration
@@ -112,9 +112,10 @@ import { Skeleton } from 'esqueletao';
 The library is designed to work with any list implementation. Here are examples with different list libraries:
 
 #### With FlashList
+
 ```tsx
-import { Skeleton, createSkeletonLayout } from 'esqueletao';
-import { FlashList } from '@shopify/flash-list';
+import { Skeleton, createSkeletonLayout } from "esqueletao";
+import { FlashList } from "@shopify/flash-list";
 
 const SkeletonList = () => (
   <FlashList
@@ -126,9 +127,10 @@ const SkeletonList = () => (
 ```
 
 #### With FlatList
+
 ```tsx
-import { Skeleton, createSkeletonLayout } from 'esqueletao';
-import { FlatList } from 'react-native';
+import { Skeleton, createSkeletonLayout } from "esqueletao";
+import { FlatList } from "react-native";
 
 const SkeletonList = () => (
   <FlatList
@@ -140,9 +142,10 @@ const SkeletonList = () => (
 ```
 
 #### With VirtualizedList
+
 ```tsx
-import { Skeleton, createSkeletonLayout } from 'esqueletao';
-import { VirtualizedList } from 'react-native';
+import { Skeleton, createSkeletonLayout } from "esqueletao";
+import { VirtualizedList } from "react-native";
 
 const SkeletonList = () => (
   <VirtualizedList
@@ -160,29 +163,30 @@ const SkeletonList = () => (
 
 All skeleton components accept these props:
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `width` | `number \| string` | `'100%'` | Width of the skeleton element |
-| `height` | `number \| string` | `20` | Height of the skeleton element |
-| `borderRadius` | `number` | `4` | Border radius for rounded corners |
-| `baseColor` | `string` | `'#E1E9EE'` | Base color of the skeleton |
-| `highlightColor` | `string` | `'#F2F8FC'` | Highlight color for shimmer effect |
-| `animation` | `'pulse' \| 'shimmer' \| 'none'` | `'shimmer'` | Animation type |
-| `duration` | `number` | `1500` | Animation duration in milliseconds |
-| `style` | `ViewStyle` | - | Additional styles |
+| Prop             | Type                             | Default     | Description                        |
+| ---------------- | -------------------------------- | ----------- | ---------------------------------- |
+| `width`          | `number \| string`               | `'100%'`    | Width of the skeleton element      |
+| `height`         | `number \| string`               | `20`        | Height of the skeleton element     |
+| `borderRadius`   | `number`                         | `4`         | Border radius for rounded corners  |
+| `baseColor`      | `string`                         | `'#E1E9EE'` | Base color of the skeleton         |
+| `highlightColor` | `string`                         | `'#F2F8FC'` | Highlight color for shimmer effect |
+| `animation`      | `'pulse' \| 'shimmer' \| 'none'` | `'shimmer'` | Animation type                     |
+| `duration`       | `number`                         | `1500`      | Animation duration in milliseconds |
+| `style`          | `ViewStyle`                      | -           | Additional styles                  |
 
 ### Skeleton Props
 
 Additional props for the Skeleton component:
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `margin` | `number \| string` | - | Margin around the element |
-| `padding` | `number \| string` | - | Padding inside the element |
+| Prop      | Type               | Default | Description                |
+| --------- | ------------------ | ------- | -------------------------- |
+| `margin`  | `number \| string` | -       | Margin around the element  |
+| `padding` | `number \| string` | -       | Padding inside the element |
 
 ## Animation Types
 
 ### Shimmer
+
 A smooth gradient animation that moves across the element.
 
 ```tsx
@@ -190,6 +194,7 @@ A smooth gradient animation that moves across the element.
 ```
 
 ### Pulse
+
 A subtle opacity animation that fades in and out.
 
 ```tsx
@@ -197,6 +202,7 @@ A subtle opacity animation that fades in and out.
 ```
 
 ### None
+
 No animation, just a static skeleton.
 
 ```tsx
@@ -208,19 +214,30 @@ No animation, just a static skeleton.
 ### Card Skeleton
 
 ```tsx
-import React from 'react';
-import { View } from 'react-native';
-import { SkeletonProvider, Container, Skeleton } from 'esqueletao';
+import React from "react";
+import { View } from "react-native";
+import { SkeletonProvider, Skeleton } from "esqueletao";
 
 const CardSkeleton = () => {
   return (
     <SkeletonProvider>
-      <Container width="100%" height={200} borderRadius={12}>
-        <Skeleton width="100%" height={120} borderRadius={8} marginBottom={12} />
+      <View
+        style={
+          {
+            /* style the wrapper as you prefer */
+          }
+        }
+      >
+        <Skeleton
+          width="100%"
+          height={120}
+          borderRadius={8}
+          marginBottom={12}
+        />
         <Skeleton width="80%" height={16} marginBottom={8} />
         <Skeleton width="60%" height={16} marginBottom={8} />
         <Skeleton width="40%" height={16} />
-      </Container>
+      </View>
     </SkeletonProvider>
   );
 };
@@ -229,9 +246,9 @@ const CardSkeleton = () => {
 ### List Skeleton
 
 ```tsx
-import React from 'react';
-import { SkeletonProvider, Skeleton, createSkeletonLayout } from 'esqueletao';
-import { FlatList } from 'react-native';
+import React from "react";
+import { SkeletonProvider, Skeleton, createSkeletonLayout } from "esqueletao";
+import { FlatList } from "react-native";
 
 const ListSkeleton = () => {
   const skeletonItems = createSkeletonLayout.list(10);
@@ -252,16 +269,16 @@ const ListSkeleton = () => {
 ### Custom Theme
 
 ```tsx
-import React from 'react';
-import { SkeletonProvider, Skeleton } from 'esqueletao';
+import React from "react";
+import { SkeletonProvider, Skeleton } from "esqueletao";
 
 const CustomThemeExample = () => {
   return (
     <SkeletonProvider
       theme={{
-        baseColor: '#2a2a2a',
-        highlightColor: '#3a3a3a',
-        animation: 'pulse',
+        baseColor: "#2a2a2a",
+        highlightColor: "#3a3a3a",
+        animation: "pulse",
         duration: 2000,
       }}
     >
@@ -278,11 +295,15 @@ The library exports utility functions for animation calculations, color interpol
 ### List Helpers
 
 ```tsx
-import { createSkeletonData, skeletonTemplates, createSkeletonLayout } from 'esqueletao';
+import {
+  createSkeletonData,
+  skeletonTemplates,
+  createSkeletonLayout,
+} from "esqueletao";
 
 // Create custom skeleton data
 const customSkeletons = createSkeletonData(5, {
-  width: '100%',
+  width: "100%",
   height: 80,
   borderRadius: 12,
 });
@@ -293,11 +314,11 @@ const listSkeletons = createSkeletonLayout.list(10);
 const avatarSkeletons = createSkeletonLayout.avatar(5);
 
 // Available templates
-skeletonTemplates.card      // Card layout
-skeletonTemplates.listItem  // List item layout
-skeletonTemplates.avatar    // Avatar/circle layout
-skeletonTemplates.text      // Text line layout
-skeletonTemplates.button    // Button layout
+skeletonTemplates.card; // Card layout
+skeletonTemplates.listItem; // List item layout
+skeletonTemplates.avatar; // Avatar/circle layout
+skeletonTemplates.text; // Text line layout
+skeletonTemplates.button; // Button layout
 ```
 
 ## Performance Tips
@@ -315,7 +336,7 @@ skeletonTemplates.button    // Button layout
 The library is fully typed with TypeScript. You can import types for custom implementations:
 
 ```tsx
-import type { SkeletonProps, SkeletonTheme, AnimationType } from 'esqueletao';
+import type { SkeletonProps, SkeletonTheme, AnimationType } from "esqueletao";
 ```
 
 ## Contributing
