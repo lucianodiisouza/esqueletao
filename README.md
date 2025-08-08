@@ -171,9 +171,9 @@ All skeleton components accept these props:
 | `duration` | `number` | `1500` | Animation duration in milliseconds |
 | `style` | `ViewStyle` | - | Additional styles |
 
-### Element Props
+### Skeleton Props
 
-Additional props for the Element component:
+Additional props for the Skeleton component:
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -186,21 +186,21 @@ Additional props for the Element component:
 A smooth gradient animation that moves across the element.
 
 ```tsx
-<Element animation="shimmer" duration={1500} />
+<Skeleton animation="shimmer" duration={1500} />
 ```
 
 ### Pulse
 A subtle opacity animation that fades in and out.
 
 ```tsx
-<Element animation="pulse" duration={1000} />
+<Skeleton animation="pulse" duration={1000} />
 ```
 
 ### None
 No animation, just a static skeleton.
 
 ```tsx
-<Element animation="none" />
+<Skeleton animation="none" />
 ```
 
 ## Examples
@@ -210,16 +210,16 @@ No animation, just a static skeleton.
 ```tsx
 import React from 'react';
 import { View } from 'react-native';
-import { SkeletonProvider, Container, Element } from 'revamped-skelethon';
+import { SkeletonProvider, Container, Skeleton } from 'esqueletao';
 
 const CardSkeleton = () => {
   return (
     <SkeletonProvider>
       <Container width="100%" height={200} borderRadius={12}>
-        <Element width="100%" height={120} borderRadius={8} marginBottom={12} />
-        <Element width="80%" height={16} marginBottom={8} />
-        <Element width="60%" height={16} marginBottom={8} />
-        <Element width="40%" height={16} />
+        <Skeleton width="100%" height={120} borderRadius={8} marginBottom={12} />
+        <Skeleton width="80%" height={16} marginBottom={8} />
+        <Skeleton width="60%" height={16} marginBottom={8} />
+        <Skeleton width="40%" height={16} />
       </Container>
     </SkeletonProvider>
   );
@@ -304,7 +304,7 @@ skeletonTemplates.button    // Button layout
 
 1. **Use memoization**: Components are already memoized, but you can further optimize by memoizing your skeleton data.
 
-2. **List optimization**: Use your preferred list library (FlashList, FlatList, etc.) with the Element component for optimal performance.
+2. **List optimization**: Use your preferred list library (FlashList, FlatList, etc.) with the Skeleton component for optimal performance.
 
 3. **Theme inheritance**: Use the `SkeletonProvider` to set global theme defaults instead of passing props to every element.
 
@@ -315,7 +315,7 @@ skeletonTemplates.button    // Button layout
 The library is fully typed with TypeScript. You can import types for custom implementations:
 
 ```tsx
-import type { ElementProps, SkeletonTheme, AnimationType } from 'esqueletao';
+import type { SkeletonProps, SkeletonTheme, AnimationType } from 'esqueletao';
 ```
 
 ## Contributing

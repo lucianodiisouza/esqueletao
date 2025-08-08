@@ -1,4 +1,4 @@
-import { ElementProps } from '../types';
+import { SkeletonProps } from '../types';
 
 /**
  * Creates skeleton data for list rendering
@@ -8,8 +8,8 @@ import { ElementProps } from '../types';
  */
 export const createSkeletonData = (
   count: number,
-  template: Partial<ElementProps> = {}
-): ElementProps[] => {
+  template: Partial<SkeletonProps> = {}
+): SkeletonProps[] => {
   return Array.from({ length: count }, (_, index) => ({
     width: '100%',
     height: 60,

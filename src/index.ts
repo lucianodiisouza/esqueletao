@@ -11,7 +11,7 @@ export {
 export type {
   AnimationType,
   SkeletonBaseProps,
-  ElementProps as SkeletonProps,
+  SkeletonProps as SkeletonProps,
   SkeletonTheme,
   SkeletonContextType,
 } from "./types";

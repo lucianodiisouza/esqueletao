@@ -63,7 +63,7 @@ const AnimationDemo = () => {
         borderRadius={8}
         animation={animation}
         duration={1500}
-        style={styles.demoElement}
+        style={styles.demoSkeleton}
       />
     </View>
   );
@@ -255,7 +255,7 @@ const styles = StyleSheet.create({
   activeButtonText: {
     fontWeight: '600',
   },
-  demoElement: {
+  demoSkeleton: {
     backgroundColor: 'white',
     padding: 12,
     borderRadius: 8,

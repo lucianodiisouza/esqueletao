@@ -15,7 +15,7 @@ export interface SkeletonBaseProps {
   testID?: string;
 }
 
-export interface ElementProps extends SkeletonBaseProps {
+export interface SkeletonProps extends SkeletonBaseProps {
   margin?: number | string;
   padding?: number | string;
 }

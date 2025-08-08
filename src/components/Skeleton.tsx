@@ -8,11 +8,11 @@ import Animated, {
   cancelAnimation,
 } from 'react-native-reanimated';
 import { LinearGradient } from 'expo-linear-gradient';
-import { ElementProps } from '../types';
+import { SkeletonProps } from '../types';
 import { useSkeletonContext } from '../context/SkeletonContext';
 import { interpolateOpacity, interpolateShimmer, getShimmerColors } from '../utils/animation';
 
-const Skeleton: React.FC<ElementProps> = memo(({
+const Skeleton: React.FC<SkeletonProps> = memo(({
   width = '100%',
   height = 20,
   borderRadius = 4,
