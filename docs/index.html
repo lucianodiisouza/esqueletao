@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esqueletao - React Native Skeleton Library</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .badges {
+            margin-top: 20px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin: 0 8px;
+            font-size: 0.9rem;
+        }
+
+        .content {
+            padding: 60px 0;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            margin: 30px 0 15px;
+            color: #34495e;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 14px;
+        }
+
+        .code-block .keyword { color: #ff79c6; }
+        .code-block .string { color: #f1fa8c; }
+        .code-block .comment { color: #6272a4; }
+        .code-block .function { color: #50fa7b; }
+
+        .install {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .install h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .install code {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-family: monospace;
+            display: block;
+            margin: 10px 0;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .feature h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .feature p {
+            color: #7f8c8d;
+        }
+
+        .demo {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+
+        .demo h3 {
+            margin-bottom: 20px;
+        }
+
+        .skeleton-demo {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .skeleton-item {
+            height: 20px;
+            background: linear-gradient(90deg, #e1e9ee 25%, #f2f8fc 50%, #e1e9ee 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 4px;
+        }
+
+        .skeleton-item.wide { width: 100%; }
+        .skeleton-item.medium { width: 80%; }
+        .skeleton-item.narrow { width: 60%; }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>Esqueletao</h1>
+            <p>A customizable skeleton loading library for React Native with support for the new architecture and Expo</p>
+            <div class="badges">
+                <span class="badge">React Native 0.73+</span>
+                <span class="badge">Expo 50+</span>
+                <span class="badge">New Architecture</span>
+                <span class="badge">TypeScript</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="container">
+            <div class="install">
+                <h3>Installation</h3>
+                <code>npm install esqueletao</code>
+                <code>yarn add esqueletao</code>
+            </div>
+
+            <div class="section">
+                <h2>Features</h2>
+                <div class="features">
+                    <div class="feature">
+                        <h4>🚀 New Architecture Ready</h4>
+                        <p>Fully compatible with React Native 0.73+ and the new architecture (Fabric, TurboModules)</p>
+                    </div>
+                    <div class="feature">
+                        <h4>📱 Expo Compatible</h4>
+                        <p>Works out-of-the-box with Expo managed workflow, no native code setup required</p>
+                    </div>
+                    <div class="feature">
+                        <h4>🎨 Highly Customizable</h4>
+                        <p>Customize colors, animations, shapes, and themes to match your app's design</p>
+                    </div>
+                    <div class="feature">
+                        <h4>⚡ Performance Optimized</h4>
+                        <p>Uses Reanimated 4 for smooth animations and optimized for lists with memoization</p>
+                    </div>
+                    <div class="feature">
+                        <h4>📦 TypeScript Support</h4>
+                        <p>Full TypeScript support with proper type definitions and IntelliSense</p>
+                    </div>
+                    <div class="feature">
+                        <h4>🔧 Composable</h4>
+                        <p>Build complex skeleton layouts easily with composable components</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Quick Start</h2>
+                <div class="code-block">
+<span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;
+<span class="keyword">import</span> { View } <span class="keyword">from</span> <span class="string">'react-native'</span>;
+<span class="keyword">import</span> { SkeletonProvider, Skeleton } <span class="keyword">from</span> <span class="string">'esqueletao'</span>;
+
+<span class="keyword">const</span> App = () => {
+  <span class="keyword">return</span> (
+    &lt;SkeletonProvider&gt;
+      &lt;View&gt;
+        &lt;Skeleton width=<span class="string">"100%"</span> height={20} marginBottom={8} /&gt;
+        &lt;Skeleton width=<span class="string">"80%"</span> height={16} marginBottom={8} /&gt;
+        &lt;Skeleton width=<span class="string">"60%"</span> height={16} /&gt;
+      &lt;/View&gt;
+    &lt;/SkeletonProvider&gt;
+  );
+};
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Live Demo</h2>
+                <div class="demo">
+                    <h3>Basic Skeleton Loading</h3>
+                    <div class="skeleton-demo">
+                        <div class="skeleton-item wide"></div>
+                        <div class="skeleton-item medium"></div>
+                        <div class="skeleton-item narrow"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Components</h2>
+                
+                <h3>SkeletonProvider</h3>
+                <p>The context provider that manages global theme settings.</p>
+                <div class="code-block">
+<span class="keyword">import</span> { SkeletonProvider } <span class="keyword">from</span> <span class="string">'esqueletao'</span>;
+
+&lt;SkeletonProvider
+  theme={{
+    baseColor: <span class="string">'#E1E9EE'</span>,
+    highlightColor: <span class="string">'#F2F8FC'</span>,
+    animation: <span class="string">'shimmer'</span>,
+    duration: 1500,
+  }}
+&gt;
+  {/* Your skeleton components */}
+&lt;/SkeletonProvider&gt;
+                </div>
+
+                <h3>Skeleton</h3>
+                <p>The core skeleton placeholder component with full customization options.</p>
+                <div class="code-block">
+<span class="keyword">import</span> { Skeleton } <span class="keyword">from</span> <span class="string">'esqueletao'</span>;
+
+&lt;Skeleton
+  width={100}
+  height={20}
+  borderRadius={4}
+  baseColor=<span class="string">"#E1E9EE"</span>
+  highlightColor=<span class="string">"#F2F8FC"</span>
+  animation=<span class="string">"pulse"</span>
+  duration={1000}
+  margin={8}
+  padding={4}
+/&gt;
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Animation Types</h2>
+                
+                <h3>Shimmer</h3>
+                <p>A smooth gradient animation that moves across the element.</p>
+                <div class="code-block">
+&lt;Skeleton animation=<span class="string">"shimmer"</span> duration={1500} /&gt;
+                </div>
+
+                <h3>Pulse</h3>
+                <p>A subtle opacity animation that fades in and out.</p>
+                <div class="code-block">
+&lt;Skeleton animation=<span class="string">"pulse"</span> duration={1000} /&gt;
+                </div>
+
+                <h3>None</h3>
+                <p>No animation, just a static skeleton.</p>
+                <div class="code-block">
+&lt;Skeleton animation=<span class="string">"none"</span> /&gt;
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>List Integration</h2>
+                <p>The library works with any list implementation. Here are examples with different list libraries:</p>
+
+                <h3>With FlashList</h3>
+                <div class="code-block">
+<span class="keyword">import</span> { Skeleton, createSkeletonLayout } <span class="keyword">from</span> <span class="string">'esqueletao'</span>;
+<span class="keyword">import</span> { FlashList } <span class="keyword">from</span> <span class="string">'@shopify/flash-list'</span>;
+
+<span class="keyword">const</span> SkeletonList = () => (
+  &lt;FlashList
+    data={createSkeletonLayout.list(10)}
+    renderItem={({ item }) => &lt;Skeleton {...item} /&gt;}
+    estimatedItemSize={60}
+  /&gt;
+);
+                </div>
+
+                <h3>With FlatList</h3>
+                <div class="code-block">
+<span class="keyword">import</span> { Skeleton, createSkeletonLayout } <span class="keyword">from</span> <span class="string">'esqueletao'</span>;
+<span class="keyword">import</span> { FlatList } <span class="keyword">from</span> <span class="string">'react-native'</span>;
+
+<span class="keyword">const</span> SkeletonList = () => (
+  &lt;FlatList
+    data={createSkeletonLayout.list(10)}
+    renderItem={({ item }) => &lt;Skeleton {...item} /&gt;}
+    keyExtractor={(item, index) => `skeleton-${index}`}
+  /&gt;
+);
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Utilities</h2>
+                <p>Helper functions for creating skeleton data and layouts.</p>
+                <div class="code-block">
+<span class="keyword">import</span> { createSkeletonData, skeletonTemplates, createSkeletonLayout } <span class="keyword">from</span> <span class="string">'esqueletao'</span>;
+
+// Create custom skeleton data
+<span class="keyword">const</span> customSkeletons = createSkeletonData(5, {
+  width: <span class="string">'100%'</span>,
+  height: 80,
+  borderRadius: 12,
+});
+
+// Use predefined templates
+<span class="keyword">const</span> cardSkeletons = createSkeletonLayout.card(3);
+<span class="keyword">const</span> listSkeletons = createSkeletonLayout.list(10);
+<span class="keyword">const</span> avatarSkeletons = createSkeletonLayout.avatar(5);
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>New Architecture Support</h2>
+                <p>This library is fully compatible with React Native's new architecture (Fabric + TurboModules):</p>
+                <ul style="margin: 20px 0; padding-left: 20px;">
+                    <li><strong>React Native 0.73+</strong>: Built with new architecture support</li>
+                    <li><strong>Reanimated 4</strong>: Uses JSI for optimal performance with latest features</li>
+                    <li><strong>Expo 50+</strong>: Full compatibility with managed workflow</li>
+                    <li><strong>No native code</strong>: Pure JavaScript/TypeScript implementation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>Made with ❤️ by <a href="https://github.com/lucianodiisouza">Luciano dii Souza</a></p>
+            <p><a href="https://github.com/lucianodiisouza/esqueletao">View on GitHub</a> • <a href="https://www.npmjs.com/package/esqueletao">View on npm</a></p>
+        </div>
+    </div>
+</body>
+</html>
